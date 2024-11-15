@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>main_window</class>
  <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>529</width>
+    <height>585</height>
+   </rect>
+  </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
     <horstretch>0</horstretch>
@@ -326,7 +334,7 @@
         <item>
          <widget class="QLabel" name="label_active">
           <property name="text">
-           <string notr="true">Dark mode will be active between</string>
+           <string>Dark mode will be active between</string>
           </property>
          </widget>
         </item>
@@ -351,7 +359,7 @@
              <x>0</x>
              <y>0</y>
              <width>489</width>
-             <height>465</height>
+             <height>89</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="plugins_scroll_content_layout">
