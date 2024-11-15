@@ -2,25 +2,11 @@
 <ui version="4.0">
  <class>main_window</class>
  <widget class="QMainWindow" name="main_window">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>550</width>
-    <height>800</height>
-   </rect>
-  </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>400</width>
-    <height>600</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string notr="true">Yin &amp; Yang</string>
@@ -34,6 +20,13 @@
   </property>
   <widget class="QWidget" name="central_widget">
    <layout class="QVBoxLayout" name="central_widget_layout">
+    <item>
+     <widget class="QDialogButtonBox" name="btn_box">
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QTabWidget" name="tab_widget">
       <property name="minimumSize">
@@ -305,6 +298,9 @@
         </item>
         <item>
          <layout class="QFormLayout" name="bootOffsetSettings">
+          <property name="verticalSpacing">
+           <number>6</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="bootOffsetLabel">
             <property name="toolTip">
@@ -330,22 +326,9 @@
         <item>
          <widget class="QLabel" name="label_active">
           <property name="text">
-           <string notr="true">Darkmode will be active between</string>
+           <string notr="true">Dark mode will be active between</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="space_vertical">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -367,8 +350,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>501</width>
-             <height>86</height>
+             <width>489</width>
+             <height>465</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="plugins_scroll_content_layout">
@@ -417,13 +400,6 @@
         </item>
        </layout>
       </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDialogButtonBox" name="btn_box">
-      <property name="standardButtons">
-       <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults</set>
-      </property>
      </widget>
     </item>
    </layout>
