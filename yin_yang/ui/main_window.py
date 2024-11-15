@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,28 +19,27 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QComboB
     QDialogButtonBox, QDoubleSpinBox, QFormLayout, QFrame,
     QGroupBox, QHBoxLayout, QLabel, QMainWindow,
     QPushButton, QRadioButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QSpinBox, QStatusBar, QTabWidget,
-    QTimeEdit, QVBoxLayout, QWidget)
+    QSpinBox, QStatusBar, QTabWidget, QTimeEdit,
+    QVBoxLayout, QWidget)
 from . import resources_rc
 
 class Ui_main_window(object):
     def setupUi(self, main_window):
         if not main_window.objectName():
             main_window.setObjectName(u"main_window")
-        main_window.resize(550, 800)
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        main_window.resize(529, 585)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(main_window.sizePolicy().hasHeightForWidth())
         main_window.setSizePolicy(sizePolicy)
-        main_window.setMinimumSize(QSize(400, 600))
         main_window.setWindowTitle(u"Yin & Yang")
         icon = QIcon()
         iconThemeName = u"yin_yang"
         if QIcon.hasThemeIcon(iconThemeName):
             icon = QIcon.fromTheme(iconThemeName)
         else:
-            icon.addFile(u":/icons/logo", QSize(), QIcon.Normal, QIcon.Off)
+            icon.addFile(u":/icons/logo", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
 
         main_window.setWindowIcon(icon)
         main_window.setLocale(QLocale(QLocale.English, QLocale.UnitedKingdom))
@@ -50,6 +49,12 @@ class Ui_main_window(object):
         self.central_widget_layout.setSpacing(6)
         self.central_widget_layout.setContentsMargins(11, 11, 11, 11)
         self.central_widget_layout.setObjectName(u"central_widget_layout")
+        self.btn_box = QDialogButtonBox(self.central_widget)
+        self.btn_box.setObjectName(u"btn_box")
+        self.btn_box.setStandardButtons(QDialogButtonBox.Apply|QDialogButtonBox.Cancel|QDialogButtonBox.RestoreDefaults)
+
+        self.central_widget_layout.addWidget(self.btn_box)
+
         self.tab_widget = QTabWidget(self.central_widget)
         self.tab_widget.setObjectName(u"tab_widget")
         self.tab_widget.setMinimumSize(QSize(368, 0))
@@ -73,8 +78,8 @@ class Ui_main_window(object):
         self.schedule_settings_layout.setObjectName(u"schedule_settings_layout")
         self.line_top = QFrame(self.schedule_settings)
         self.line_top.setObjectName(u"line_top")
-        self.line_top.setFrameShape(QFrame.HLine)
-        self.line_top.setFrameShadow(QFrame.Sunken)
+        self.line_top.setFrameShape(QFrame.Shape.HLine)
+        self.line_top.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.schedule_settings_layout.addWidget(self.line_top)
 
@@ -86,7 +91,7 @@ class Ui_main_window(object):
 
         self.time = QFrame(self.schedule_settings)
         self.time.setObjectName(u"time")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.time.sizePolicy().hasHeightForWidth())
@@ -105,7 +110,7 @@ class Ui_main_window(object):
 
         self.inp_time_light = QTimeEdit(self.time)
         self.inp_time_light.setObjectName(u"inp_time_light")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.inp_time_light.sizePolicy().hasHeightForWidth())
@@ -160,7 +165,7 @@ class Ui_main_window(object):
 
         self.inp_longitude = QDoubleSpinBox(self.location_input)
         self.inp_longitude.setObjectName(u"inp_longitude")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.inp_longitude.sizePolicy().hasHeightForWidth())
@@ -202,8 +207,8 @@ class Ui_main_window(object):
 
         self.line_bottom = QFrame(self.schedule_settings)
         self.line_bottom.setObjectName(u"line_bottom")
-        self.line_bottom.setFrameShape(QFrame.HLine)
-        self.line_bottom.setFrameShadow(QFrame.Sunken)
+        self.line_bottom.setFrameShape(QFrame.Shape.HLine)
+        self.line_bottom.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.schedule_settings_layout.addWidget(self.line_bottom)
 
@@ -237,6 +242,7 @@ class Ui_main_window(object):
         self.bootOffsetSettings = QFormLayout()
         self.bootOffsetSettings.setSpacing(6)
         self.bootOffsetSettings.setObjectName(u"bootOffsetSettings")
+        self.bootOffsetSettings.setVerticalSpacing(6)
         self.bootOffsetLabel = QLabel(self.settings)
         self.bootOffsetLabel.setObjectName(u"bootOffsetLabel")
 
@@ -253,13 +259,8 @@ class Ui_main_window(object):
 
         self.label_active = QLabel(self.settings)
         self.label_active.setObjectName(u"label_active")
-        self.label_active.setText(u"Darkmode will be active between")
 
         self.settings_layout.addWidget(self.label_active)
-
-        self.space_vertical = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.settings_layout.addItem(self.space_vertical)
 
         self.tab_widget.addTab(self.settings, "")
         self.plugins = QWidget()
@@ -274,7 +275,7 @@ class Ui_main_window(object):
         self.plugins_scroll.setWidgetResizable(True)
         self.plugins_scroll_content = QWidget()
         self.plugins_scroll_content.setObjectName(u"plugins_scroll_content")
-        self.plugins_scroll_content.setGeometry(QRect(0, 0, 501, 86))
+        self.plugins_scroll_content.setGeometry(QRect(0, 0, 489, 89))
         self.plugins_scroll_content_layout = QVBoxLayout(self.plugins_scroll_content)
         self.plugins_scroll_content_layout.setSpacing(6)
         self.plugins_scroll_content_layout.setContentsMargins(11, 11, 11, 11)
@@ -319,12 +320,6 @@ class Ui_main_window(object):
 
         self.central_widget_layout.addWidget(self.tab_widget)
 
-        self.btn_box = QDialogButtonBox(self.central_widget)
-        self.btn_box.setObjectName(u"btn_box")
-        self.btn_box.setStandardButtons(QDialogButtonBox.Apply|QDialogButtonBox.Cancel|QDialogButtonBox.RestoreDefaults)
-
-        self.central_widget_layout.addWidget(self.btn_box)
-
         main_window.setCentralWidget(self.central_widget)
         self.status_bar = QStatusBar(main_window)
         self.status_bar.setObjectName(u"status_bar")
@@ -359,6 +354,7 @@ class Ui_main_window(object):
 #endif // QT_CONFIG(tooltip)
         self.bootOffsetLabel.setText(QCoreApplication.translate("main_window", u"Delay after boot:", None))
         self.bootOffset.setSuffix(QCoreApplication.translate("main_window", u"s", None))
+        self.label_active.setText(QCoreApplication.translate("main_window", u"Dark mode will be active between", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.settings), QCoreApplication.translate("main_window", u"Settings", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.plugins), QCoreApplication.translate("main_window", u"Plugins", None))
         pass
