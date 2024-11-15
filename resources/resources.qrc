@@ -4,5 +4,8 @@
   </qresource>
   <qresource prefix="translations">
     <file alias="yin_yang.de_DE">translations/yin_yang.de_DE.qm</file>
+    <file alias="yin_yang.nl_NL">translations/yin_yang.nl_NL.qm</file>
+    <file alias="yin_yang.zh_CN">translations/yin_yang.zh_CN.qm</file>
+    <file alias="yin_yang.zh_TW">translations/yin_yang.zh_TW.qm</file>
   </qresource>
 </RCC>
