@@ -4,8 +4,8 @@ from typing import cast
 from PySide6 import QtWidgets
 from PySide6.QtCore import QStandardPaths
 from PySide6.QtGui import QScreen, QColor
-from PySide6.QtWidgets import QFileDialog, QMessageBox, QDialogButtonBox, QColorDialog, QGroupBox
-
+from PySide6.QtWidgets import QFileDialog, QMessageBox, QDialogButtonBox
+from PySide6.QtWidgets import QColorDialog, QGroupBox, QStatusBar
 from .main_window import Ui_main_window
 from ..theme_switcher import set_desired_theme, set_mode
 from ..meta import ConfigEvent, PluginKey
@@ -65,8 +65,7 @@ class MainWindow(QtWidgets.QMainWindow):
         """Sets the values from the config to the elements"""
 
         # set current version in statusbar
-        self.ui.status_bar.showMessage(self.tr('You are using version {}', '')
-                                       .format(str(config.version)))
+        self.ui.status_bar.showMessage(self.tr('You are using version {}').format(str(config.version)))
 
         # set the correct mode
         mode = config.mode
@@ -96,7 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # giving the time widget the values of the config
         self.ui.inp_time_light.setTime(time_light)
         self.ui.inp_time_dark.setTime(time_dark)
-        self.update_label_enabled()
+        self.update_label_active()
 
     def load_location(self):
         if self.ui.btn_sun.isChecked():
@@ -162,12 +161,12 @@ class MainWindow(QtWidgets.QMainWindow):
                     buttons[1].clicked.connect(lambda: self.select_color(True, color_1))
         plugin = None
 
-    def update_label_enabled(self):
+    def update_label_active(self):
         time_light = self.ui.inp_time_light.time().toPython()
         time_dark = self.ui.inp_time_dark.time().toPython()
-        self.ui.label_active.setText(
-            self.tr('Dark mode will be active between {} and {}.')
-            .format(time_dark.strftime("%H:%M"), time_light.strftime("%H:%M")))
+        night_begin = time_dark.strftime("%H:%M")
+        day_begin = time_light.strftime("%H:%M")
+        self.ui.label_active.setText(self.tr('Dark mode will be active between ') + night_begin + self.tr(' and ') + day_begin + '.')
 
     def setup_config_sync(self):
         # set sunrise and sunset times if mode is set to followSun or coordinates changed
@@ -217,7 +216,7 @@ class MainWindow(QtWidgets.QMainWindow):
         time_dark = self.ui.inp_time_dark.time().toPython()
         config.times = time_light, time_dark
 
-        self.update_label_enabled()
+        self.update_label_active()
 
     def update_location(self):
         if config.mode != Modes.FOLLOW_SUN:
